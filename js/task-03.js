@@ -20,7 +20,7 @@ console.log (imageList);
 const imageElem = [];
 const imageData = images.forEach(image =>{
       const imageItem = document.createElement(`li`);
-imageItem.className = `item-gallery` ;
+imageItem.classList.add(`item-gallery`);
 
     const imageContent = `<img src=${image.url} alt="${image.alt}" width= 150px >`;
 
@@ -34,30 +34,8 @@ console.log(imageItem)
     console.log(imageElem)
 
 
-// const addImages = images.map((picture)=> `<li><img src="${picture.url}" alt="${picture.alt}" width = 150px></li>`).join(``);
+// const addImages = images.map((picture)=> `<li class="item-gallery"><img src="${picture.url}" alt="${picture.alt}" width = 150px></li>`).join(``);
 // console.log(addImages)
 // imageList.insertAdjacentHTML("beforeend", addImages)
 
-
 // console.log(imageList)
-
-
-
-
-
-
-//   const allImageElem = [];
-//   const imageData = images.forEach(image =>{
-//     const imageItem = document.createElement(`li`);
-
-//      const data = document.createElement(`img`);
-// data.src = `${image.url}`;
-// data.alt = `${image.alt}`;
-// data.width = `150`;
-
-// imageItem.append(data);
-// allImageElem.push(imageItem);
-
-//   } );
-//   imageList.append(...allImageElem);
-//   console.log(imageList );

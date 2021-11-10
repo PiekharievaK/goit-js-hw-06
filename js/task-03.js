@@ -15,27 +15,9 @@ const images = [
 ];
 
 const imageList = document.querySelector(`.gallery`);
-console.log (imageList);
 
-const imageElem = [];
-const imageData = images.forEach(image =>{
-      const imageItem = document.createElement(`li`);
-imageItem.classList.add(`item-gallery`);
+const addImages = images.map((picture)=> `<li class="item-gallery"><img src="${picture.url}" alt="${picture.alt}" width = 150px></li>`).join(``);
+console.log(addImages)
+imageList.insertAdjacentHTML("beforeend", addImages)
 
-    const imageContent = `<img src=${image.url} alt="${image.alt}" width= 150px >`;
-
-imageItem.insertAdjacentHTML("beforeend", imageContent);
-
-imageElem.push(imageItem)
-console.log(imageItem)
-    });
-
-    imageList.append(...imageElem)
-    console.log(imageElem)
-
-
-// const addImages = images.map((picture)=> `<li class="item-gallery"><img src="${picture.url}" alt="${picture.alt}" width = 150px></li>`).join(``);
-// console.log(addImages)
-// imageList.insertAdjacentHTML("beforeend", addImages)
-
-// console.log(imageList)
+console.log(imageList)

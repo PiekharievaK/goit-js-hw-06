@@ -9,7 +9,16 @@ const boxesDiv = document.querySelector(`#boxes`);
 
 boxesDiv.classList.add(`boxes-div`)
 
-resetBtn.addEventListener(`click`, () => { boxesDiv.innerHTML = ""; boxesCollection.length = 0;} )
+resetBtn.addEventListener(`click`, destroyBoxes)
+
+function destroyBoxes() {
+  boxesDiv.innerHTML = "";
+  boxesCollection.length = 0;
+  boxesCreate.hidden = false; addBtn.hidden = false;
+  addBtn.addEventListener(`click`, createBoxes);
+}
+
+
 addBtn.addEventListener(`click`, createBoxes)
 
 const boxesCollection = []
@@ -25,11 +34,11 @@ function createBoxes() {
      box.style.margin =`10px`
      box.style.border = `1px solid black`
     box.style.backgroundColor = getRandomHexColor();
-  
-   
-   
+    boxesCreate.hidden = true;
+    addBtn.hidden = true;
     boxesCollection.push(box)
     boxesDiv.append(...boxesCollection)
+    addBtn.removeEventListener(`click`, createBoxes)
   }
 }
 

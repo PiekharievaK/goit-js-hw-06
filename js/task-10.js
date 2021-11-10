@@ -14,7 +14,8 @@ resetBtn.addEventListener(`click`, destroyBoxes)
 function destroyBoxes() {
   boxesDiv.innerHTML = "";
   boxesCollection.length = 0;
-  boxesCreate.hidden = false; addBtn.hidden = false;
+  boxesCreate.disabled = false;
+  addBtn.style.opacity = `1`;
   addBtn.addEventListener(`click`, createBoxes);
 }
 
@@ -34,11 +35,11 @@ function createBoxes() {
      box.style.margin =`10px`
      box.style.border = `1px solid black`
     box.style.backgroundColor = getRandomHexColor();
-    boxesCreate.hidden = true;
-    addBtn.hidden = true;
+    boxesCreate.disabled = true;
+    addBtn.style.opacity = `0.5`;
     boxesCollection.push(box)
     boxesDiv.append(...boxesCollection)
-    addBtn.removeEventListener(`click`, createBoxes)
+    addBtn.removeEventListener(`click`, createBoxes);
   }
 }
 
